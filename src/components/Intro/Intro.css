@@ -1,3 +1,7 @@
+.intro-container {
+    overflow: hidden;
+}
+
 header {
     width: 100%;
     position: absolute;
