@@ -58,3 +58,15 @@
 
 }
 
+
+@media screen and (max-width: 550px) {
+    .footer{
+        font-size: 1rem;
+    }
+    .footer-icon-zone a{
+        font-size: 2rem;
+    }
+    .footer-icon-zone a:hover{
+        font-size: 2.5rem;
+    }
+}

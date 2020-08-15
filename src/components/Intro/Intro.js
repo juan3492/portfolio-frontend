@@ -42,7 +42,7 @@ const Intro = () => {
       heroTextBox.current,
       1, 
       { yPercent: 40, opacity: 0},
-      {delay: 1.3, yPercent: -40, opacity: 1}
+      {delay: 1.3, yPercent: -40, opacity: 1} 
     );
   }, [])
 
