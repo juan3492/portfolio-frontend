@@ -5,16 +5,7 @@ import axios from "axios";
 import { TweenMax } from "gsap";
 import PortfolioCard from "./PortfolioCard";
 
-const Portfolio = () => {
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://backend-portfolio-juan3492.herokuapp.com/portfolio")
-      .then((res) => {
-        setProjects(res.data);
-      });
-  }, [setProjects]);
-
+const Portfolio = ({informationPortfolio}) => {
   const polygon = useRef(null);
   const textbox = useRef(null);
   const [wasAnimated, setWasAnimated] = useState(false);
@@ -61,8 +52,8 @@ const Portfolio = () => {
         </div>
         <div className="portfolio-container">
           <div className="portfolio-cards">
-           {projects &&
-              projects.map((project, index) => (
+           {informationPortfolio &&
+              informationPortfolio.map((project, index) => (
                 <PortfolioCard id={index} project={project} timeSlide={randomTimeSlide()}/>
             ))} 
           </div>

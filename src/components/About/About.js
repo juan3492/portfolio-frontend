@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useIntersection } from 'react-use'
-import axios from "axios";
 import "./About.css";
 import photo from "../../assets/img/circle-cropped.png";
 import { TweenMax } from "gsap";
 import { Link } from 'react-scroll';
 
-const About = () => {
-  const [information, setInformation] = useState({});
+const About = ({informationAbout}) => {
   const [polygonWasAnimated, setPolygonWasAnimated] = useState(false)
   const [descriptionWasAnimated, setDescriptionWasAnimated] = useState(false);
   const polygon = useRef(null);
@@ -15,14 +13,6 @@ const About = () => {
   const description = useRef(null);
   const pills = useRef(null);
   const buttons = useRef(null)
-
-  useEffect(() => {
-    axios
-      .get("https://backend-portfolio-juan3492.herokuapp.com/about")
-      .then((res) => {
-        setInformation(res.data[0]);
-      });
-  }, [setInformation]);
 
   const polygonIntersection = useIntersection(polygon,{
     root: null,
@@ -70,15 +60,15 @@ const About = () => {
         <div className="description">
           <h1 ref={title} className="about-title main-heading">Sobre mí</h1>
           <p ref={description} className="about-content">
-            Me llamo {information.name}. {information.about_me}
+            Me llamo {informationAbout.name}. {informationAbout.about_me}
           </p>
           <div ref={pills} className="about-pill-zone">
             <p className="about-content">
               Aqui algunas de las tecnologias que manejo:
             </p>
             <ul>
-              {information.skills &&
-                information.skills.map((skill, index) => (
+              {informationAbout.skills &&
+                informationAbout.skills.map((skill, index) => (
                   <p className="about-pills">{skill}</p>
                 ))}
             </ul>
