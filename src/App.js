@@ -14,9 +14,9 @@ function App() {
 
   const fetchData = async () => {
     const resAbout = await axios
-      .get("https://backend-portfolio-juan3492.herokuapp.com/about");
+      .get("https://juanpunk.onrender.com/about");
     const resPortfolio = await axios
-      .get("https://backend-portfolio-juan3492.herokuapp.com/portfolio");
+      .get("https://juanpunk.onrender.com/portfolio");
     setFetchingData(false);
     setRes({ about: resAbout.data[0], portfolio: resPortfolio.data});
   }
